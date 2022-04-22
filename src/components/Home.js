@@ -10,7 +10,6 @@ export const Home = (props) => {
     
   useEffect(() => {
     if(localStorage.getItem('token')){
-
     }
     else{
       navigate('/login');

@@ -37,10 +37,14 @@ const Backenditem = (props) => {
       new_home.value="Enabled"
     }
     updateBackend(backend, new_home).then(() => {
-      window.location.reload()
+      getBackend(backend).then(backendjson => {
+        const backendarray = [];
+        Object.keys(backendjson[backend]).forEach((key) => backendarray.push({ name: key, value: backendjson[backend][key]}));
+        setBackendserverstatus(backendarray)
+      });
+      //window.location.reload()
     })
-    props.showAlert(`${new_home.value} Successfully !`, "success");
-
+    props.showAlert(`${new_home.value} Successfully ! Please do not forget to reload HAProxy using button on Navigation Bar`, "success");
    }
 
   return (
@@ -53,7 +57,6 @@ const Backenditem = (props) => {
             <li className='list-group-item text-info fw-bold'>{home.name}: {home.value} 
             <i className='fa-solid fa-toggle-on mx-2' onClick={() => {handleEdit(home)}}></i>
             </li>
-            
           </ul>
           </div>)}
         </div>

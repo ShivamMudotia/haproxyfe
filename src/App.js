@@ -1,5 +1,6 @@
 import "./App.css";
 import image from './images/background.jpeg'
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -20,7 +21,7 @@ function App() {
       type: type
     })
     setTimeout( () => {
-      setAlert(null);
+      setAlert("null");
     }, 3000);
   }
   
@@ -42,6 +43,7 @@ function App() {
           </div>
         </Router>
         </Backendstate>
+        <Footer/>
         </div>
     </>
   );
