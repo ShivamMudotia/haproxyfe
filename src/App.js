@@ -43,7 +43,7 @@ function App() {
           </div>
         </Router>
         </Backendstate>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
     </>
   );

@@ -23,8 +23,8 @@ const Backends = (props) => {
 
   return (
     <>
-    <div className='row my-3 mt-2 text-dark'>
-      <div className='my-3 text-center'>
+    <div className='row my-1 mt-1 text-dark'>
+      <div className='my-1 text-center'>
       <h3>Status of Backends and Servers on HAProxy Load Balancer !</h3>
       </div>
       {backends.map((backend) => {
