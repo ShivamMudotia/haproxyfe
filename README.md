@@ -11,7 +11,7 @@ https://github.com/ShivamMudotia/haproxy_apis.git
 
 ### Build docker image ands push to repo 
 
-#### Add correct backend API's IP in Dockerfile before building
+#### Add/Update correct HAProxy API's IP - you can also override the value in docker-comnpose.yml if using docker-compose
 
 docker build -t shivammudotia21/haproxyfe:latest .
 docker push shivammudotia21/haproxyfe:latest
