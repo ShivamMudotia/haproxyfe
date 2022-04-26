@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  haproxyfe:
+    image: shivammudotia21/haproxyfe:latest
+    container_name: haproxyfe
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_HOST=http://192.168.167.24:8000
