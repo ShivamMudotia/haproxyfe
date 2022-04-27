@@ -51,6 +51,12 @@ const updateBackend = async (backend,home) => {
     } } );
 
   const json = await response.json();
+  if(json['backend']==='Only one one backend server can be disabled at a time'){
+        props.showAlert(`Only one server can be "Disabled" at once`, "danger");
+      }
+  if(json['backend']==='Minimum on backend server should be Enabled'){
+        props.showAlert(`Minimum one backend server must be "Enabled".`, "danger");
+      }
   return json
 };
 

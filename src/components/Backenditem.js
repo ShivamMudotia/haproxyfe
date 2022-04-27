@@ -39,6 +39,16 @@ const Backenditem = (props) => {
     updateBackend(backend, new_home).then(() => {
       getBackend(backend).then(backendjson => {
         const backendarray = [];
+        // if(backendjson[backend]){
+        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
+        // }
+
+        // if(backendjson[backend]==='Only one one backend server can be disabled at a time'){
+        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
+        // }
+        // if(backendjson[backend]==="Minimum on backend server should be Enabled"){
+        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
+        // }
         Object.keys(backendjson[backend]).forEach((key) => backendarray.push({ name: key, value: backendjson[backend][key]}));
         setBackendserverstatus(backendarray)
       });
