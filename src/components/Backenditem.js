@@ -39,16 +39,6 @@ const Backenditem = (props) => {
     updateBackend(backend, new_home).then(() => {
       getBackend(backend).then(backendjson => {
         const backendarray = [];
-        // if(backendjson[backend]){
-        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
-        // }
-
-        // if(backendjson[backend]==='Only one one backend server can be disabled at a time'){
-        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
-        // }
-        // if(backendjson[backend]==="Minimum on backend server should be Enabled"){
-        //   props.showAlert(`Only one server can be "Disabled" at once and minimum one backend server must be "Enabled".`, "danger");
-        // }
         Object.keys(backendjson[backend]).forEach((key) => backendarray.push({ name: key, value: backendjson[backend][key]}));
         setBackendserverstatus(backendarray)
       });
@@ -64,9 +54,14 @@ const Backenditem = (props) => {
           <div className='card-header text-success fw-bold'>Backend : {backend}</div>
           {backendserverstatus?.map(home => <div key={home.name}>
           <ul className='list-group list-group-flush mx-1'>
-            <li className='list-group-item text-info fw-bold'>{home.name}: {home.value} 
+          {home.value==='Enabled'?
+            <li className='list-group-item text-primary fw-bold'>{home.name}: {home.value} 
             <i className='fa-solid fa-toggle-on mx-2' onClick={() => {handleEdit(home)}}></i>
+            </li>:
+            <li className='list-group-item fw-bold text-danger'>{home.name}: {home.value} 
+            <i className='fa-solid fa-toggle-off mx-2' onClick={() => {handleEdit(home)}}></i>
             </li>
+          }
           </ul>
           </div>)}
         </div>
