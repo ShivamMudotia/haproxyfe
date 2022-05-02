@@ -61,7 +61,7 @@ const Backenditem = (props) => {
             <li className='list-group-item fw-bold text-danger'>{home.name}: {home.value} 
             <i className='fa-solid fa-toggle-off mx-2' onClick={() => {handleEdit(home)}}></i>
             </li>
-}
+             }
           </ul>
           </div>)}
         </div>
