@@ -90,12 +90,12 @@ const Navbar = (props) => {
               <button className="btn btn-secondary mx-2 text-warning fw-bold" onClick={handleReload}>Reload HAProxy</button>
               <button className="btn btn-secondary mx-2 text-warning fw-bold" onClick={handleStatus}>HAProxy Status</button>
               </div>
-              :<button className="btn btn-secondary mx-2 text-warning fw-bold" >Hello There !</button>
+              :<button className="btn btn-secondary mx-2 text-warning fw-bold" >Hello There => </button>
                }
         
               {!localStorage.getItem('token')?<form className='d-flex'>
                 <Link className="btn btn-success mx-2 text-warning fw-bold" to="/login" role="button">Login</Link>
-              </form>: <button className="btn btn-success mx-2 text-warning fw-bold" onClick={handleLogout}>Logout</button>}
+              </form>: <button className="btn btn-success mx-2 text-warning fw-bold" onClick={handleLogout}>Hello {localStorage.getItem('user') } !!  Logout</button>}
             </div>
           </div>
         </nav>

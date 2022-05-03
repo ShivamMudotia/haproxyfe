@@ -29,9 +29,24 @@ const Login = (props) => {
       localStorage.setItem('token', json.access_token);
       navigate('/backends');
       props.showAlert("Logged In Successfully !", "success");
-    } else {
+    } 
+    else 
+    {
         props.showAlert("Incorrect Credentials ! or Something Went Wrong !", "danger");
     }
+    
+    var auth_token = "Bearer " + localStorage.getItem('token')    
+    const response_user = await fetch(`${host}/users/me`, {
+      method: "GET",
+      headers:  {
+        "Content-Type": "application/json",
+        "Authorization": auth_token
+      }
+    });
+
+    const json_user = await response_user.json();
+    localStorage.setItem('user', json_user.user);
+   
   };
 
   const onChange = (e) => {
@@ -43,28 +58,14 @@ const Login = (props) => {
       <h2>Login to continue..</h2>
       <form onSubmit={handleSubmit}>
         <div className='mb-3'>
-          <label htmlFor='username' className='form-label'>
-            Username
-          </label>
-          <input
-            type='text'
-            className='form-control'
-            id='username'
-            name='username'
-            value={credentials.email}
-            onChange={onChange}
-            aria-describedby='emailHelp'
-          />
+          <label htmlFor='username' className='form-label'>Username</label>
+          <input type='text' className='form-control' id='username' name='username' value={credentials.email} onChange={onChange}/>
         </div>
         <div className='mb-3'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
+          <label htmlFor='password' className='form-label'>Password</label>
           <input type='password' className='form-control' id='password' name='password' value={credentials.password} onChange={onChange} />
         </div>
-        <button type='submit' className='btn btn-success text-warning fw-bold'>
-          Submit
-        </button>
+        <button type='submit' className='btn btn-success text-warning fw-bold'>Submit</button>
       </form>
     </div>
   );
